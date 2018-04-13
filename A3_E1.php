@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+     <meta charset="UTF-8" />
     <title>Assignment3: Exercise1</title>
     <style>
         table,th,td{border-collapse: collapse;
@@ -183,8 +183,37 @@
     ?>
     
     
+    <h3>averageTemp</h3>
+    <?php
+    function averageTemp($assoArr){
+        $length=count($assoArr);
+        $average=number_format(array_sum($assoArr)/count($assoArr),2); 
+        sort($assoArr);
+        echo "Average Temperature is: $average <br>";
+        echo "List of four lowest temperatures: $assoArr[0], $assoArr[1], $assoArr[2], $assoArr[3]<br>";
+         echo "List of four lowest temperatures: ".$assoArr[$length-4].", ".$assoArr[$length-3].", ".$assoArr[$length-2].", ".$assoArr[$length-1];
+    }
     
+    averageTemp(array(78, 60, 62, 68, 71, -17, 52, 68, 73, 85, 66, 64, 76, 63, 75, 76, 73, 68, 62, 73, -10, 72, 65, 80,74, 62, 62, 65, 64, 0, 68, 73, 75, 79, 73, 77));
+    ?>
 
+    
+    <h3>findStartorEnd</h3>
+    <?php
+    function findatStartorEnd($word,$str){
+        $strArr=explode(" ",$str);
+        if(strcmp($word, $strArr[0])==0||strcmp($word,$strArr[count($strArr)-1])==0){
+            echo "true<br>";
+            return true;
+        }else{
+            echo "false<br>";
+            return false;
+        }
+    }
+    findatStartorEnd("love","I love PHP so so much");
+    findatStartorEnd("much","I love PHP so so much");
+    findatStartorEnd("PHP", "PHP is my favorite language");
+    ?>
 </body>
 
 </html>
