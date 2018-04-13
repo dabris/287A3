@@ -3,6 +3,13 @@
 
 <head>
     <title>Assignment3: Exercise1</title>
+    <style>
+        table,th,td{border-collapse: collapse;
+                border: 1px solid black;
+                width: 200px;
+                height: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,7 +97,89 @@
     
     <h3>sortHash1</h3>
     <?php
+    function sortHash1($assoArr){
+        asort($assoArr);
+        $keys=array_keys($assoArr);
+        $value=array_values($assoArr);
+        $html="<table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Salary ($/h)</th>
+                    </tr>";
+        for($i=0;$i<count($assoArr);$i++){
+            $html.= "<tr>
+                    <td>$keys[$i]</td>
+                    <td>$value[$i]</td>
+                </tr>";
+        }
+        $html.="</table>";
+        echo $html;
+    }
     
+    sortHash1(array("Jack"=>"55",
+                    "Anita"=>"30","Ramesh"=>"40","Sophia"=>"21","Nastran"=>"41","William"=>"
+                    39","David"=>"5") );
+    ?>
+    
+    
+    <h3>sortHash2</h3>
+    <?php
+    function sortHash2($assoArr, $code){
+        switch($code){
+            case 1:
+                asort($assoArr);
+                foreach ($assoArr as $name => $salary){
+                    echo "name: $name , salary: $salary <br>";
+                }
+                break;
+            case 2:
+                ksort($assoArr);
+                foreach ($assoArr as $name => $salary){
+                    echo "name: $name , salary: $salary <br>";
+                }
+                break;
+            case 3:
+                arsort($assoArr);
+                foreach ($assoArr as $name => $salary){
+                    echo "name: $name , salary: $salary <br>";
+                }
+                break;
+            case 4:
+                krsort($assoArr);
+                foreach ($assoArr as $name => $salary){
+                    echo "name: $name , salary: $salary <br>";
+                }
+                break;
+            default:
+                echo "wrong code";
+        }
+    }
+    
+    echo "<br> <br> case 1 <br>";
+     
+    sortHash2(array("Jack"=>"55",
+                    "Anita"=>"30","Ramesh"=>"40","Sophia"=>"21","Nastran"=>"41","William"=>"
+                    39","David"=>"5") ,1);
+     echo "<br> <br> case 2 <br>";
+    
+    sortHash2(array("Jack"=>"55",
+                    "Anita"=>"30","Ramesh"=>"40","Sophia"=>"21","Nastran"=>"41","William"=>"
+                    39","David"=>"5") ,2);
+     echo "<br> <br> case 3 <br>";
+  
+    sortHash2(array("Jack"=>"55",
+                    "Anita"=>"30","Ramesh"=>"40","Sophia"=>"21","Nastran"=>"41","William"=>"
+                    39","David"=>"5") ,3);
+     echo "<br> <br> case 4 <br>";
+    
+     sortHash2(array("Jack"=>"55",
+                    "Anita"=>"30","Ramesh"=>"40","Sophia"=>"21","Nastran"=>"41","William"=>"
+                    39","David"=>"5") ,4);
+     echo "<br> <br> case 31 <br>";
+    
+     sortHash2(array("Jack"=>"55",
+                    "Anita"=>"30","Ramesh"=>"40","Sophia"=>"21","Nastran"=>"41","William"=>"
+                    39","David"=>"5") ,31);
     ?>
     
     
